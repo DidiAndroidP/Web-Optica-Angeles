@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="/img/logo-removebg-preview.png" type="image/png">
 
     <link rel="stylesheet" href="styles.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -20,19 +21,28 @@
                 <img src="/img/logo-removebg-preview.png" alt="Logotipo Ópticas Ángeles">
                 <span class="brand-text">Ópticas Ángeles</span>
             </a>
+            
             <ul class="nav-links">
                 <li><a href="#catalogo">Catálogo</a></li>
                 <li><a href="#lifestyle">Estilo</a></li>
                 <li><a href="#tecnologia">Tecnología</a></li>
                 <li><a href="#ubicacion">Sucursales</a></li>
+                
                 <li class="social-nav-item">
-                    <a href="https://instagram.com" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </li>
                 <li class="social-nav-item">
-                    <a href="https://wa.me/5211234567890" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/5211234567890" target="_blank" class="social-link whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </li>
             </ul>
-            <div class="hamburger"><i class="fas fa-bars"></i></div>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -211,6 +221,33 @@
             <p>&copy; 2024. Cuidando tu mirada con estilo.</p>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = hamburger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
 
 </body>
 </html>
